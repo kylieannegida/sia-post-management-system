@@ -1,18 +1,19 @@
 import dotenv from "dotenv";
 import path from "path";
 import mongoose from "mongoose";
+import logging from "./logging";
 
 // Add error checking for .env loading
 const result = dotenv.config({
   path: path.resolve(__dirname, "../.env"),
 });
 
-if (result.error) {
-  logging.log("----------------------------------------");
-  logging.log("Error loading .env file:", result.error);
-  logging.log("----------------------------------------");
-  throw result.error;
-}
+// if (result.error) {
+//   logging.log("----------------------------------------");
+//   logging.log("Error loading .env file:", result.error);
+//   logging.log("----------------------------------------");
+//   throw result.error;
+// }
 
 // Environment flags
 export const DEVELOPMENT = process.env.NODE_ENV === "development";
